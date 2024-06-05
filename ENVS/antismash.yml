@@ -1,0 +1,8 @@
+name: antismash_funLIFE
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - antismash
+  - biopython
+  - numpy

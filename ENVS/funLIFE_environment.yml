@@ -1,0 +1,42 @@
+name: funLIFE_environment
+channels:
+    - conda-forge
+    - bioconda
+    - r
+    - defaults
+dependencies:
+    - blast
+    - snakemake
+    - scipy
+    - biopython
+    - diamond
+    - bioawk
+    - gffread
+    - perl-bioperl
+    - perl-yaml
+    - perl-hash-merge
+    - perl-logger-simple
+    - perl-parallel-forkmanager
+    - mmseqs2
+    - tbl2asn
+    - hmmer==3.1b2
+    - mcl
+    - bioconductor-biostrings
+    - r-proc
+    - r-ape
+    - r-readr
+    - r-stringr
+    - r-upsetr  
+    - r-dplyr
+    - r-base
+    - r-splitstackshape
+    - r-reshape2
+    - r-tidyverse
+    - r-plyr
+    - r-gtools
+    - r-data.table
+    - r-randomforest
+    - phylophlan
+    - eggnog-mapper
+    - scikit-learn
+
