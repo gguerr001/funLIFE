@@ -3,8 +3,6 @@ import os
 
 os.system('mv MEGAMATRIX_renamed.txt Shiny_app/input/')
 
-os.system('mv intermediate_files/cog_annotation/cog_custom_groups.txt Shiny_app/input/')
-
 os.system('mv mapping_file.txt Shiny_app/input/')
 
 os.system('mv names_equivalence.txt Shiny_app/input/')

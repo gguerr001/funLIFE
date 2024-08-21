@@ -19,22 +19,21 @@ cog_annotation <- data.table(cog_annotation)
 cog_annotation[cog_annotation$cog_category == '-']$cog_category = 'S'
 cog_annotation$cog_category <- substr(cog_annotation$cog_category, 1, 1)
 
-cog_categories = cog_annotation[,2:3]
-cog_categories = unique(cog_categories)
-COG_general= read.csv(args[2], header = F)
-COG_general = COG_general[,c(2,7)]
-COG_general = unique(COG_general)
-COG_general = COG_general[!is.na(COG_general$V7),]
-
-cog_categories = merge(cog_categories, COG_general, by.x = 'cog_category', by.y = 'V2')
-cog_categories = cog_categories[,c(2,1,3)]
-new_row = data.frame(cogid = 'Unknown', cog_category = 'S', V7 = 'Function unknown')
-cog_categories = rbind(cog_categories, new_row)
-write.table(cog_categories, 'intermediate_files/cog_annotation/cog_custom_groups.txt', row.names = F, col.names = F, sep= '\t')
 
 
-cog_annotation = cog_annotation[,c(1,2,4)]
-colnames(cog_annotation)[1] = 'gene'
+cog_annotation = cog_annotation[,1:2]
+
+##Read cog eggnog groups file 
+
+cog_categories = read.table(args[2], header = F, sep = '\t')
+cog_categories = cog_categories[,1:2]
+cog_annotation = merge(cog_annotation, cog_categories, by.x = 'cogid', by.y = 'V1')
+
+
+
+
+cog_annotation = cog_annotation[,c(2,1,3)]
+colnames(cog_annotation) = c('gene', 'cogid', 'cog_description')
 write.table(cog_annotation, args[4], row.names = F)
 
 

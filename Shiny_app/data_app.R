@@ -131,12 +131,14 @@ dbcan_agg_matrix = dbcan_agg_matrix[!is.na(dbcan_agg_matrix$id),]
 
 
 #Load cog annotations and clean it
-cog_extended_annotations <- read.table('input/cog_custom_groups.txt', header = F)
-cog_extended_annotations2 <- cog_extended_annotations[,c(2,3)]
+cog_extended_annotations <- read.table('src/cog_eggnog_groups.txt', header = F)
+
+cog_extended_annotations2 <- cog_extended_annotations[,c(3,4)]
 colnames(cog_extended_annotations2) <- c('COG category', 'COG category description')
 cog_extended_annotations2 <- distinct(cog_extended_annotations2)
 cog_extended_annotations2 <- cog_extended_annotations2[!duplicated(cog_extended_annotations2[,1]), ]    
 
+cog_extended_annotations <- cog_extended_annotations[,c(1,3,4)]
 colnames(cog_extended_annotations)[1] <- 'id'
 colnames(cog_extended_annotations)[3] <- 'general processes'
 colnames(cog_extended_annotations)[2] <- 'processes'

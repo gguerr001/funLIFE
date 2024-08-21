@@ -204,7 +204,7 @@ rule KEGG_COG:
         rules.EGGNOG.output
     params:
         kegg_descriptions = KEGG_DESCRIPTIONS,
-        cog_descriptions = "./src/cog_annotation_groups.csv",
+        cog_descriptions = "./src/cog_eggnog_groups.txt",
     output:
         clean_annotation = 'intermediate_files/eggnog_annotation/eggnog_annotation.emapper.clean.annotations',
         cog = COG_ANNOTATION,
